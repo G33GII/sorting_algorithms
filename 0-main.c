@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
+=======
+>>>>>>> d648728b6e98d589d35c289684197f105ed29504
 #include "sort.h"
 
 /**
@@ -18,4 +21,8 @@ int main(void)
     printf("\n");
     print_array(array, n);
     return (0);
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> d648728b6e98d589d35c289684197f105ed29504
