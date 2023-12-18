@@ -9,7 +9,7 @@
 void bubble_sort(int *array, size_t size)
 {
 	int *p = array;
-	int x, tmp, z;
+	size_t x, z;
 
 	for (x = 0; x < size - 1; x++)
 	{
@@ -22,4 +22,17 @@ void bubble_sort(int *array, size_t size)
 			}
 		}
 	}
+}
+
+/**
+ * swap - function to swap
+ * @a: element to be swapped
+ * @b: element to be swapped
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	size_t temp_Var = *a;
+	*a = *b;
+	*b = temp_Var;
 }
