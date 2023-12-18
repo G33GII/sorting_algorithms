@@ -14,7 +14,7 @@ void bubble_sort(int *array, size_t size)
 	if (size == 1)
 	{
 		print_array(p, size);
-		return (57);
+		return;
 	}
 
 	for (x = 0; x < size - 1; x++)
