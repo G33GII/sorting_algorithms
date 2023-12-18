@@ -7,8 +7,8 @@
  */
 int main(void)
 {
-	int array[] = {19};
-	size_t n = sizeof(array) / sizeof(array[0]);
+    int array[] = {5, 1, 3};
+    size_t n = sizeof(array) / sizeof(array[0]);
 
 	print_array(array, n);
 	printf("\n");
