@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "sort.h"
 
 /**
@@ -36,12 +35,10 @@ size_t Lomuto_partition(int array[], size_t low, size_t high)
         if (array[j] < pivot_value)
         {
             swap(&array[i], &array[j]);
-            print_array(array, high + 1); // Print array after swap
             i++;
         }
     }
     swap(&array[i], &array[high]);
-    print_array(array, high + 1); // Print array after swap
     return i;
 }
 
