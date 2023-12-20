@@ -29,4 +29,7 @@ void quick_sort_recursion(int array[], size_t low, size_t high);
 size_t Lomuto_partition(int array[], size_t low, size_t high);
 void shell_sort(int *array, size_t size);
 
+void heap_sort(int *array, size_t size);
+void heapify(int *array, size_t size, size_t root);
+
 #endif /* End of Include Guard */
