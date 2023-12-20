@@ -39,9 +39,9 @@ void quick_sort_recursion(int array[], size_t low, size_t high)
 size_t Lomuto_partition(int array[], size_t low, size_t high)
 {
 	int pivot_value = array[high];
-	size_t i = low;
+	size_t i = low, j;
 
-	for (size_t j = low; j < high; j++)
+	for (j = low; j < high; j++)
 	{
 		if (array[j] < pivot_value)
 		{
@@ -50,6 +50,7 @@ size_t Lomuto_partition(int array[], size_t low, size_t high)
 		}
 	}
 	swap(&array[i], &array[high]);
+	print_array(array, high + 1);
 	return (i);
 }
 
