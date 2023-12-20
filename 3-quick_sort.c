@@ -1,49 +1,60 @@
+#include <stdio.h>
 #include "sort.h"
 
 /**
- * selection_sort - Entry point
- * @array: Array to be sorted
- * @size: Size of array
- * Return: Void
+ * main - Entry point
+ *
+ * Return: Always 0
  */
 void quick_sort(int *array, size_t size)
 {
-    int *p = array;
-    int *tmp = NULL;
-    size_t x, z;
-
-    if (size < 2)
-        return;
-
-    tmp = &p[size - 1];
-    
-
-    /*
-    for (x = size - 1; p[x]; x--)
-    {
-        if ()
-
-        for (z = 0; z < size; z++)
-        {
-            if (p[x] < p[z])
-            {
-                swap(&p[x], &p[z]);
-                print_array(p, size);
-            }
-        }
-    }
-    */
+    quick_sort_recursion(array, 0, size - 1);
 }
 
-/**
- * swap - function to swap
- * @a: element to be swapped
- * @b: element to be swapped
- * Return: void
- */
+
+void quick_sort_recursion(int array[], size_t low, size_t high)
+{
+    if (low < high)
+    {
+        size_t pivot_idx = Lomuto_partition(array, low, high);
+        if (pivot_idx > 0)
+        {
+            quick_sort_recursion(array, low, pivot_idx - 1);
+        }
+        quick_sort_recursion(array, pivot_idx + 1, high);
+    }
+}
+
+
+size_t Lomuto_partition(int array[], size_t low, size_t high)
+{
+    int pivot_value = array[high];
+    size_t i = low;
+
+    for (size_t j = low; j < high; j++)
+    {
+        if (array[j] < pivot_value)
+        {
+            swap(&array[i], &array[j]);
+            print_array(array, high + 1); // Print array after swap
+            i++;
+        }
+    }
+    swap(&array[i], &array[high]);
+    print_array(array, high + 1); // Print array after swap
+    return i;
+}
+
+
+
+
+
+
+
+
 void swap(int *a, int *b)
 {
-    size_t temp_Var = *a;
+    int temp = *a;
     *a = *b;
-    *b = temp_Var;
+    *b = temp;
 }
