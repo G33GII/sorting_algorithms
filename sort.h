@@ -27,5 +27,5 @@ void swap_values(listint_t *node1, listint_t *node2);
 void quick_sort(int *array, size_t size);
 void quick_sort_recursion(int array[], size_t low, size_t high);
 size_t Lomuto_partition(int array[], size_t low, size_t high);
-
+void counting_sort(int *array, size_t size);
 #endif /* End of Include Guard */
