@@ -2,30 +2,40 @@
 
 /**
  * bubble_sort - Entry point
- * @array:
- * @size:
- * Return: Always 0
+ * @array: Array to be sorted
+ * @size: Size of array
+ * Return: Void
  */
 void bubble_sort(int *array, size_t size)
 {
-    int *_p = array; /*_s = NULL;*/
-    size_t x, y, tmp;
+	int *p = array;
+	size_t x, z;
 
-    for (x = 0; x < size; x++)
-    {
-        for (y = 0; y < size; y++)
-        {
-            /*printf("%i", _p[y]);*/
-            if (_p[x + 1] != 0)
-            {
-                if (_p[y] > _p[y + 1])
-                {
-                    tmp = _p[y];
-                    _p[y] = _p[y + 1];
-                    _p[y + 1] = tmp;
-                    print_array(array, size);
-                }
-            }
-        }
-    }
+	if (size < 2)
+		return;
+
+	for (x = 0; x < size - 1; x++)
+	{
+		for (z = 0; z < size - x - 1; z++)
+		{
+			if (p[z] > p[z + 1])
+			{
+				swap(&p[z], &p[z + 1]);
+				print_array(p, size);
+			}
+		}
+	}
+}
+
+/**
+ * swap - function to swap
+ * @a: element to be swapped
+ * @b: element to be swapped
+ * Return: void
+ */
+void swap(int *a, int *b)
+{
+	size_t temp_Var = *a;
+	*a = *b;
+	*b = temp_Var;
 }
