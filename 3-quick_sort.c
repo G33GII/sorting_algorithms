@@ -7,51 +7,65 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	quick_sort_recursion(array, 0, size - 1);
+	if (array == NULL || size < 2)
+		return;
+
+	quick_sort_lomuto_recursion(array, size, 0, size - 1);
 }
 
 /**
- * quick_sort_recursion - Helper function to perform
+ * lomuto_recursion - Helper function to perform
  * the quick sort algorithm recursively.
  * @array: The array to be sorted
- * @low: The starting index of the sub-array
- * @high: The ending index of the sub-array
+ * @left: The starting index of the sub-array
+ * @size: The size entire array
+ * @right: The ending index of the sub-array
  */
-void quick_sort_recursion(int array[], size_t low, size_t high)
+void lomuto_recursion(int array[],  size_t size, int left, int right)
 {
-	if (low < high)
-	{
-		size_t pivot_idx = Lomuto_partition(array, low, high);
+	int part;
 
-		if (pivot_idx > 0)
-			quick_sort_recursion(array, low, pivot_idx - 1);
-		quick_sort_recursion(array, pivot_idx + 1, high);
+	if (right - left > 0)
+	{
+		part = Lomuto_partition(size, array, left, right);
+		lomuto_recursion(array, size, left, part - 1);
+		lomuto_recursion(array, size, part + 1, right);
 	}
 }
 
 /**
  * Lomuto_partition - Lomuto partition scheme.
  * @array: The array to be partitioned
- * @low: The starting index of the sub-array
- * @high: The ending index of the sub-array
+ * @left: The starting index of the sub-array
+ * @right: The ending index of the sub-array
+ * @size: The size entire array
  * Return: The partition index
  */
-size_t Lomuto_partition(int array[], size_t low, size_t high)
+size_t Lomuto_partition(size_t size, int array[], int left, int right)
 {
-	int pivot_value = array[high];
-	size_t i = low, j;
+	int *pivot, above, below;
 
-	for (j = low; j < high; j++)
+	pivot = array + right;
+	for (above = below = left; below < right; below++)
 	{
-		if (array[j] < pivot_value)
+		if (array[below] < *pivot)
 		{
-			swap(&array[i], &array[j]);
-			i++;
+			if (above < below)
+			{
+				swap(array + below, array + above);
+				print_array(array, size);
+			}
+			above++;
 		}
 	}
-	swap(&array[i], &array[high]);
-	print_array(array, high + 1);
-	return (i);
+
+	if (array[above] > *pivot)
+	{
+		swap(array + above, pivot);
+		print_array(array, size);
+	}
+
+	return (above);
 }
 
 /**

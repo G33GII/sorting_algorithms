@@ -18,8 +18,8 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-void quick_sort_recursion(int array[], size_t low, size_t high);
-size_t Lomuto_partition(int array[], size_t low, size_t high);
+void lomuto_recursion(int array[], size_t size, int left, int right);
+size_t Lomuto_partition(size_t size, int array[], int left, int right);
 void print_array(const int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
