@@ -10,7 +10,7 @@ void quick_sort(int *array, size_t size)
 	if (array == NULL || size < 2)
 		return;
 
-	quick_sort_lomuto_recursion(array, size, 0, size - 1);
+	lomuto_recursion(array, size, 0, size - 1);
 }
 
 /**
