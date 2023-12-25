@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 /**
  * struct listint_s - Doubly linked list node
@@ -18,12 +19,17 @@ typedef struct listint_s
 	struct listint_s *next;
 } listint_t;
 
-void lomuto_recursion(int array[], size_t size, int left, int right);
+void swap_node_behind(listint_t **list, listint_t **tail, listint_t **current);
+void swap_node_ahead(listint_t **list, listint_t **tail, listint_t **current);
+
 size_t Lomuto_partition(size_t size, int array[], int left, int right);
+void lomuto_recursion(int array[], size_t size, int left, int right);
+listint_t *create_listint(const int *array, size_t size);
 void print_array(const int *array, size_t size);
 void selection_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void bubble_sort(int *array, size_t size);
+void cocktail_sort_list(listint_t **list);
 void shell_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
 void print_list(const listint_t *list);
