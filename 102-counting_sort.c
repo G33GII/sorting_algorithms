@@ -8,7 +8,6 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	/* Declare variables */
 	int *counting_array, *sorted_array, max_value, index;
 
 	/* Check if the array is valid and has more than one element */
@@ -30,7 +29,6 @@ void counting_sort(int *array, size_t size)
 	/* Initialize the counting array with zeros */
 	for (index = 0; index < (max_value + 1); index++)
 		counting_array[index] = 0;
-
 	/* Count the occurrences of each number in the array */
 	for (index = 0; index < (int)size; index++)
 		counting_array[array[index]] += 1;
@@ -45,10 +43,8 @@ void counting_sort(int *array, size_t size)
 		sorted_array[counting_array[array[index]] - 1] = array[index];
 		counting_array[array[index]] -= 1;
 	}
-	/* Copy sorted array back to the original array */
 	for (index = 0; index < (int)size; index++)
 		array[index] = sorted_array[index];
-	/* Free the dynamically allocated memory */
 	free(sorted_array);
 	free(counting_array);
 }
@@ -63,7 +59,6 @@ int get_max(int *array, int size)
 {
 	int max_value, index;
 
-	/* Initialize max_value with the first element of the array */
 	max_value = array[0];
 	/* Iterate over the array, updating max_value with any value larger than it */
 	for (index = 1; index < size; index++)
