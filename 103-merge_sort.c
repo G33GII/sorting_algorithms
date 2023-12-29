@@ -56,10 +56,10 @@ size_t right)
 {
 	size_t i, j, k = 0;
 
-	printf("Merging...\n[left_subarray]: ");
+	printf("Merging...\n[left]: ");
 	print_array(subarray + left, middle - left);
 
-	printf("[right_subarray]: ");
+	printf("[right]: ");
 	print_array(subarray + middle, right - middle);
 
 	for (i = left, j = middle; i < middle && j < right; k++)
