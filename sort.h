@@ -38,7 +38,9 @@ int get_max(int *array, int size);
 void swap(int *a, int *b);
 
 void merge_sort(int *array, size_t size);
-void merge_sort_recursive(int *subarray, int *buffer, size_t left, size_t right);
-void merge_subarray(int *subarray, int *buffer, size_t left, size_t middle, size_t right);
+void merge_sort_recursive(int *subarray, int *buffer, size_t left,
+size_t right);
+void merge_subarray(int *subarray, int *buffer, size_t left, size_t middle,
+size_t right);
 
 #endif /* End of Include Guard */
